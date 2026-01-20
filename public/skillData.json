@@ -1,0 +1,122 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners.",
+    "image": "https://i.postimg.cc/example1.png",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions for non-native speakers.",
+    "image": "https://i.postimg.cc/example2.png",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Photography Basics Workshop",
+    "providerName": "Michael Lee",
+    "providerEmail": "michael@skillswap.com",
+    "price": 25,
+    "rating": 4.7,
+    "slotsAvailable": 4,
+    "description": "Learn the fundamentals of DSLR photography and composition.",
+    "image": "https://i.postimg.cc/example3.png",
+    "category": "Art"
+  },
+  {
+    "skillId": 4,
+    "skillName": "JavaScript for Beginners",
+    "providerName": "Nusrat Jahan",
+    "providerEmail": "nusrat@skillswap.com",
+    "price": 30,
+    "rating": 4.9,
+    "slotsAvailable": 2,
+    "description": "Hands-on JavaScript lessons for new web developers.",
+    "image": "https://i.postimg.cc/example4.png",
+    "category": "Programming"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Yoga for Stress Relief",
+    "providerName": "Arun Sharma",
+    "providerEmail": "arun@skillswap.com",
+    "price": 15,
+    "rating": 4.5,
+    "slotsAvailable": 6,
+    "description": "Gentle yoga routines for mindfulness and relaxation.",
+    "image": "https://i.postimg.cc/example5.png",
+    "category": "Health"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Baking Homemade Cakes",
+    "providerName": "Lina Rahman",
+    "providerEmail": "lina@skillswap.com",
+    "price": 22,
+    "rating": 4.4,
+    "slotsAvailable": 3,
+    "description": "Step-by-step cake baking for beginners.",
+    "image": "https://i.postimg.cc/example6.png",
+    "category": "Cooking"
+  },
+  {
+    "skillId": 7,
+    "skillName": "Basic Graphic Design",
+    "providerName": "Tom Walker",
+    "providerEmail": "tom@skillswap.com",
+    "price": 18,
+    "rating": 4.6,
+    "slotsAvailable": 4,
+    "description": "Learn design principles and beginner-friendly tools.",
+    "image": "https://i.postimg.cc/example7.png",
+    "category": "Design"
+  },
+  {
+    "skillId": 8,
+    "skillName": "Public Speaking Confidence",
+    "providerName": "Rita Sengupta",
+    "providerEmail": "rita@skillswap.com",
+    "price": 12,
+    "rating": 4.3,
+    "slotsAvailable": 5,
+    "description": "Improve your speaking skills through guided practice.",
+    "image": "https://i.postimg.cc/example8.png",
+    "category": "Personal Development"
+  },
+  {
+    "skillId": 9,
+    "skillName": "Fitness Training for Beginners",
+    "providerName": "David King",
+    "providerEmail": "david@skillswap.com",
+    "price": 20,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Personalized workout sessions tailored for new learners.",
+    "image": "https://i.postimg.cc/example9.png",
+    "category": "Fitness"
+  },
+  {
+    "skillId": 10,
+    "skillName": "Basic Spanish Conversation",
+    "providerName": "Elena Garcia",
+    "providerEmail": "elena@skillswap.com",
+    "price": 14,
+    "rating": 4.5,
+    "slotsAvailable": 5,
+    "description": "Learn to speak essential Spanish phrases for daily use.",
+    "image": "https://i.postimg.cc/example10.png",
+    "category": "Language"
+  }
+]

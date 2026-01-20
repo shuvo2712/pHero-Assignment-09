@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router";
+import { FcGoogle } from "react-icons/fc";
 
 const NavLinks = (
   <>
@@ -7,7 +8,7 @@ const NavLinks = (
       <NavLink to="/">Home</NavLink>
     </li>
     <li>
-      <NavLink to="/about">About</NavLink>
+      <NavLink to="/about">About Us</NavLink>
     </li>
     <li>
       <NavLink to="/login">Login</NavLink>
@@ -16,8 +17,12 @@ const NavLinks = (
 );
 
 const NavBar = () => {
+  const handleGoogleSignIn = () => {
+    console.log("Google Sign-In clicked");
+  };
+
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,15 +49,18 @@ const NavBar = () => {
             {NavLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a href="/" className="btn btn-ghost text-xl">
+          SkillSwap
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          {NavLinks}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a onClick={handleGoogleSignIn} className="btn btn-primary">
+          <FcGoogle />
+          Sign In
+        </a>
       </div>
     </div>
   );
