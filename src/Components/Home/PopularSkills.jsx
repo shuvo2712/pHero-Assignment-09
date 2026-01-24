@@ -6,7 +6,7 @@ const PopularSkills = ({ skills = [] }) => {
   // console.log(skills);
   return (
     <div className="p-10 w-full text-center mt-10">
-      <h1 className="text-5xl text-center">Popular Skills</h1>
+      <h1 className="text-5xl font-semibold text-center">Popular Skills</h1>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-5 px-5 mt-10">
         {/* Skill Items */}
         {skills?.slice(0, 6).map((skill) => (

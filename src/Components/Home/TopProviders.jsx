@@ -21,8 +21,8 @@ const topProviders = [
 
 const TopRatedProviders = () => {
   return (
-    <div className="py-16 bg-gray-50 text-center">
-      <h2 className="text-4xl font-bold mb-10">Top Rated Providers</h2>
+    <div className="p-10 text-center">
+      <h2 className="text-5xl font-semibold mb-10">Top Rated Providers</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 px-5">
         {topProviders.map((provider, index) => (

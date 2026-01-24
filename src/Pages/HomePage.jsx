@@ -1,4 +1,5 @@
 import React from "react";
+import HeroSlider from "../Components/Home/HeroSlider";
 import Banner from "../Components/Home/Banner";
 import PopularSkills from "../Components/Home/PopularSkills";
 import { useLoaderData } from "react-router-dom";
@@ -9,7 +10,8 @@ const Home = () => {
   const skills = useLoaderData();
   return (
     <div>
-      <Banner></Banner>
+      <HeroSlider></HeroSlider>
+      {/* <Banner></Banner> */}
       <PopularSkills skills={skills}></PopularSkills>
       <TopProviders></TopProviders>
       <HowItWorks></HowItWorks>
