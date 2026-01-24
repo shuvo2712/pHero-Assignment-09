@@ -9,20 +9,45 @@ import {
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.config";
 
+const baseLinkClass =
+  "";
+const activeLinkClass = "bg-blue-500 text-white";
 
 const NavLinks = (
   <>
     <li>
-      <NavLink to="/">Home</NavLink>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
+        }
+      >
+        Home
+      </NavLink>
     </li>
     <li>
-      <NavLink to="/skills">Skills</NavLink>
+      <NavLink
+        to="/skills"
+        className={({ isActive }) =>
+          isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
+        }
+      >Skills</NavLink>
     </li>
     <li>
-      <NavLink to="/myprofile">My Profile</NavLink>
+      <NavLink
+        to="/myprofile"
+        className={({ isActive }) =>
+          isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
+        }
+      >My Profile</NavLink>
     </li>
     <li>
-      <NavLink to="/about">About Us</NavLink>
+      <NavLink
+        to="/about"
+        className={({ isActive }) =>
+          isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
+        }
+      >About Us</NavLink>
     </li>
   </>
 );

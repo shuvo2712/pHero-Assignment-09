@@ -11,19 +11,19 @@ const HeroSlider = () => {
       autoplay={{ delay: 2000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
       loop={true}
-      className="w-full h-[70vh]"
+      className="w-full h-[50vh]"
     >
       {/* Slide 1 */}
       <SwiperSlide>
         <div
-          className="hero min-h-[70vh]"
+          className="hero min-h-[50vh]"
           style={{
             backgroundImage:
               "url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f)",
           }}
         >
           <div className="hero-overlay bg-opacity-60"></div>
-          <div className="hero-content text-center text-white px-5">
+          <div className="hero-content text-center text-white">
             <div>
               <h1 className="text-5xl font-bold">Learn New Skills</h1>
               <p className="py-4">Upgrade yourself with experts</p>
@@ -35,7 +35,7 @@ const HeroSlider = () => {
       {/* Slide 2 */}
       <SwiperSlide>
         <div
-          className="hero min-h-[70vh]"
+          className="hero min-h-[50vh]"
           style={{
             backgroundImage:
               "url(https://images.unsplash.com/photo-1521737604893-d14cc237f11d)",
@@ -54,7 +54,7 @@ const HeroSlider = () => {
       {/* Slide 3 */}
       <SwiperSlide>
         <div
-          className="hero min-h-[70vh]"
+          className="hero min-h-[50vh]"
           style={{
             backgroundImage:
               "url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d)",

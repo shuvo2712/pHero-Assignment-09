@@ -22,7 +22,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <div className="py-16 bg-white text-center">
-      <h2 className="text-4xl font-bold mb-12">How It Works</h2>
+      <h2 className="text-5xl font-semibold mb-12">How It Works</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-5">
         {steps.map((step, idx) => (
