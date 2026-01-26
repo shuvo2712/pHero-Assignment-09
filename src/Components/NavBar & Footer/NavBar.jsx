@@ -3,7 +3,6 @@ import { Link, NavLink } from "react-router-dom";
 import {
   onAuthStateChanged,
   GoogleAuthProvider,
-  signInWithPopup,
   signOut,
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.config";
@@ -66,12 +65,6 @@ const NavBar = () => {
     });
     return () => unsubscribe();
   }, []);
-
-  // Google sign in Btn
-  const handleGoogleSignIn = () => {
-    const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider).catch(console.error);
-  };
 
   // Logout Btn
   const handleLogout = () => {
