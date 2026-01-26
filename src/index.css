@@ -6,7 +6,7 @@
   name: "light";
   default: true;
   --color-primary: #004279; /*midnight teal*/
-  --color-secondary: #547d98; /*silver teal*/
+  --color-secondary: #FFD700 ; /*Mustard Yellow*/
 
   /* 
   --color-base-100: #ffffff;

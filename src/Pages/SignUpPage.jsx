@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useLocation, useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import {
-  signInWithEmailAndPassword,
-  sendPasswordResetEmail,
+  createUserWithEmailAndPassword,
+  updateProfile,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
@@ -12,47 +12,40 @@ import { FcGoogle } from "react-icons/fc";
 
 import { auth } from "../Firebase/firebase.config";
 
-const LoginPage = () => {
+const SignupPage = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
   const [password, setPassword] = useState("");
 
-  const location = useLocation();
   const navigate = useNavigate();
-  const from = location.state?.from?.pathname || "/";
 
-  /* login handler */
-  const handleLogin = (e) => {
+  /* register handler */
+  const handleSignup = (e) => {
     e.preventDefault();
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        toast.success("Login successful ✅");
-        navigate(from, { replace: true });
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        /* set name & photo */
+        updateProfile(userCredential.user, {
+          displayName: name,
+          photoURL: photoURL,
+        });
+        toast.success("Signup successful ✅");
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
       });
   };
 
-  /* Forget password handler */
-  const handleForgetPassword = () => {
-    if (!email) {
-      toast.error("Please enter your email first");
-      return;
-    }
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => toast.success("Password reset email sent 📧"))
-      .catch((error) => toast.error(error.message));
-  };
-
-  /* Google login handler */
-  const handleGoogleLogin = () => {
+  /* Google signup handler */
+  const handleGoogleSignup = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then(() => {
-        toast.success("Google login successful ✅");
-        navigate(from, { replace: true });
+        toast.success("Google signup/login successful ✅");
+        navigate("/", { replace: true });
       })
       .catch((error) => toast.error(error.message));
   };
@@ -60,13 +53,22 @@ const LoginPage = () => {
   return (
     <div className="flex items-center justify-center my-10">
       <form
-        onSubmit={handleLogin}
+        onSubmit={handleSignup}
         className="w-full max-w-md p-8 shadow rounded bg-base-100 space-y-4"
       >
-        {/* Title */}
-        <h1 className="text-3xl font-bold text-center mb-6">Login</h1>
+        <h1 className="text-3xl font-bold text-center mb-6">Sign Up</h1>
 
-        {/* Email */}
+        {/* Name input */}
+        <input
+          type="text"
+          placeholder="Full Name"
+          className="input input-bordered w-full"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+
+        {/* Email input */}
         <input
           type="email"
           placeholder="Email"
@@ -76,7 +78,16 @@ const LoginPage = () => {
           required
         />
 
-        {/* Password */}
+        {/* Photo URL input */}
+        <input
+          type="text"
+          placeholder="Photo URL"
+          className="input input-bordered w-full"
+          value={photoURL}
+          onChange={(e) => setPhotoURL(e.target.value)}
+        />
+
+        {/* Password input */}
         <input
           type="password"
           placeholder="Password"
@@ -86,36 +97,28 @@ const LoginPage = () => {
           required
         />
 
-        {/* Forget password */}
-        <p
-          onClick={handleForgetPassword}
-          className="text-sm text-blue-600 cursor-pointer"
-        >
-          Forgot Password?
-        </p>
-
-        {/* Login button */}
+        {/* Register btn */}
         <button type="submit" className="btn btn-primary w-full">
-          Login
+          Register
         </button>
 
         <div className="divider">OR</div>
 
-        {/* Google login */}
+        {/* Google login/signup */}
         <button
           type="button"
-          onClick={handleGoogleLogin}
+          onClick={handleGoogleSignup}
           className="btn btn-outline w-full flex items-center justify-center gap-2"
         >
           <FcGoogle />
           Continue with Google
         </button>
 
-        {/* Signup */}
+        {/* Login link */}
         <p className="text-center text-sm mt-2">
-          Don’t have an account?{" "}
-          <Link to="/signup" className="text-blue-600 underline">
-            Sign Up
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-600 underline">
+            Login
           </Link>
         </p>
       </form>
@@ -125,4 +128,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default SignupPage;

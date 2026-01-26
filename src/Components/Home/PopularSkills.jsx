@@ -17,7 +17,7 @@ const PopularSkills = ({ skills = [] }) => {
       <div>
         <Link
           to="/skills"
-          className="btn btn-primary text-white rounded-lg mt-10 px-15 py-5"
+          className="btn btn-primary text-white rounded-lg mt-10 px-15 py-5 hover:scale-115 transition-transform"
         >
           Show All Skills
         </Link>

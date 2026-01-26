@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+import { Link, NavLink } from "react-router-dom";
 import {
   onAuthStateChanged,
   GoogleAuthProvider,
@@ -9,9 +8,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.config";
 
-const baseLinkClass =
-  "";
-const activeLinkClass = "bg-blue-500 text-white";
+const baseLinkClass = "mx-1";
+const activeLinkClass = "bg-primary text-white";
 
 const NavLinks = (
   <>
@@ -31,7 +29,9 @@ const NavLinks = (
         className={({ isActive }) =>
           isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
         }
-      >Skills</NavLink>
+      >
+        Skills
+      </NavLink>
     </li>
     <li>
       <NavLink
@@ -39,7 +39,9 @@ const NavLinks = (
         className={({ isActive }) =>
           isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
         }
-      >My Profile</NavLink>
+      >
+        My Profile
+      </NavLink>
     </li>
     <li>
       <NavLink
@@ -47,7 +49,9 @@ const NavLinks = (
         className={({ isActive }) =>
           isActive ? `${baseLinkClass} ${activeLinkClass}` : baseLinkClass
         }
-      >About Us</NavLink>
+      >
+        About Us
+      </NavLink>
     </li>
   </>
 );
@@ -79,7 +83,7 @@ const NavBar = () => {
       {/* LEFT */}
       <div className="navbar-start">
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
             ☰
           </div>
           <ul
@@ -89,13 +93,16 @@ const NavBar = () => {
             {NavLinks}
           </ul>
         </div>
-        <NavLink to="/" className="btn btn-ghost text-xl text-blue-600">
+        <NavLink
+          to="/"
+          className="btn btn-ghost text-xl text-primary font-bold"
+        >
           SkillSwap
         </NavLink>
       </div>
 
       {/* CENTER */}
-      <div className="navbar-center hidden lg:flex">
+      <div className="navbar-center hidden md:flex">
         <ul className="menu menu-horizontal px-1">{NavLinks}</ul>
       </div>
 
@@ -104,15 +111,13 @@ const NavBar = () => {
         {/* LOGGED OUT */}
         {!user && (
           <>
-            <button onClick={handleGoogleSignIn} className="btn btn-primary">
-              <FcGoogle />
+            <Link to="/login" className="btn btn-primary text-white">
               Login
-            </button>
+            </Link>
             <h1>/</h1>
-            <button onClick={handleGoogleSignIn} className="btn btn-primary">
-              <FcGoogle />
-              SignUp
-            </button>
+            <Link to="/signup" className="btn btn-primary text-white">
+              Sign Up
+            </Link>
           </>
         )}
 

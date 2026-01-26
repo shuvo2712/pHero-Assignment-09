@@ -1,6 +1,6 @@
 [
   {
-    "skillId": 1,
+    "skillId": "1",
     "skillName": "Beginner Guitar Lessons",
     "providerName": "Alex Martin",
     "providerEmail": "alex@skillswap.com",
@@ -12,7 +12,7 @@
     "category": "Music"
   },
   {
-    "skillId": 2,
+    "skillId": "2",
     "skillName": "Spoken English Practice",
     "providerName": "Sara Hossain",
     "providerEmail": "sara@skillswap.com",
@@ -24,7 +24,7 @@
     "category": "Language"
   },
   {
-    "skillId": 3,
+    "skillId": "3",
     "skillName": "Photography Basics Workshop",
     "providerName": "Michael Lee",
     "providerEmail": "michael@skillswap.com",
@@ -36,7 +36,7 @@
     "category": "Art"
   },
   {
-    "skillId": 4,
+    "skillId": "4",
     "skillName": "JavaScript for Beginners",
     "providerName": "Nusrat Jahan",
     "providerEmail": "nusrat@skillswap.com",
@@ -48,7 +48,7 @@
     "category": "Programming"
   },
   {
-    "skillId": 5,
+    "skillId": "5",
     "skillName": "Yoga for Stress Relief",
     "providerName": "Arun Sharma",
     "providerEmail": "arun@skillswap.com",
@@ -60,7 +60,7 @@
     "category": "Health"
   },
   {
-    "skillId": 6,
+    "skillId": "6",
     "skillName": "Baking Homemade Cakes",
     "providerName": "Lina Rahman",
     "providerEmail": "lina@skillswap.com",
@@ -72,7 +72,7 @@
     "category": "Cooking"
   },
   {
-    "skillId": 7,
+    "skillId": "7",
     "skillName": "Basic Graphic Design",
     "providerName": "Tom Walker",
     "providerEmail": "tom@skillswap.com",
@@ -84,7 +84,7 @@
     "category": "Design"
   },
   {
-    "skillId": 8,
+    "skillId": "8",
     "skillName": "Public Speaking Confidence",
     "providerName": "Rita Sengupta",
     "providerEmail": "rita@skillswap.com",
@@ -96,7 +96,7 @@
     "category": "Personal Development"
   },
   {
-    "skillId": 9,
+    "skillId": "9",
     "skillName": "Fitness Training for Beginners",
     "providerName": "David King",
     "providerEmail": "david@skillswap.com",
@@ -108,7 +108,7 @@
     "category": "Fitness"
   },
   {
-    "skillId": 10,
+    "skillId": "10",
     "skillName": "Basic Spanish Conversation",
     "providerName": "Elena Garcia",
     "providerEmail": "elena@skillswap.com",

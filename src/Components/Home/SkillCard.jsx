@@ -1,5 +1,6 @@
 import React from "react";
 import image from "../../assets/bannerImage.png"; 
+import { Link } from "react-router-dom";
 
 const SkillCard = ({ skill }) => {
   if (!skill) return null;
@@ -7,14 +8,10 @@ const SkillCard = ({ skill }) => {
   const { skillName, rating, price } = skill;
 
   return (
-    <div className="card bg-white shadow-lg hover:shadow-2xl transition-shadow rounded-xl overflow-hidden flex flex-col">
+    <div className="card bg-base-100 shadow-lg hover:shadow-2xl rounded-xl overflow-hidden flex flex-col hover:scale-105 transition-transform">
       {/* Image */}
       <figure>
-        <img
-          src={image}
-          alt={skillName}
-          className="h-48 w-full object-cover hover:scale-105 transition-transform"
-        />
+        <img src={image} alt={skillName} className="h-48 w-full object-cover" />
       </figure>
 
       {/* Details */}
@@ -24,13 +21,17 @@ const SkillCard = ({ skill }) => {
             {skillName}
           </h2>
           <p className="text-sm text-gray-500 mb-1">⭐ {rating}</p>
-          <p className="text-sm font-medium mb-3">💲 {price}</p>
+          <p className="text-sm font-medium mb-3">💲{price}</p>
         </div>
 
-        <div className="flex justify-center">
-          <button className="btn btn-primary px-6 py-3 text-white font-semibold rounded-lg hover:scale-105 transition-transform">
-            View Details
-          </button>
+        {/* Details Btn */}
+        <div>
+        <Link
+          to={`/skills/${skill.skillId}`}
+          className="btn btn-primary w-full mt-3 rounded-lg"
+        >
+          View Details
+          </Link>
         </div>
       </div>
     </div>
