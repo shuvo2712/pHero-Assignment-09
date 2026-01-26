@@ -24,6 +24,20 @@ const SignupPage = () => {
   const handleSignup = (e) => {
     e.preventDefault();
 
+    // Password validation rules
+    if (!/[A-Z]/.test(password)) {
+      toast.error("Password must contain at least one uppercase letter");
+      return;
+    }
+    if (!/[a-z]/.test(password)) {
+      toast.error("Password must contain at least one lowercase letter");
+      return;
+    }
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters long");
+      return;
+    }
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         /* set name & photo */
@@ -37,7 +51,7 @@ const SignupPage = () => {
       .catch((error) => {
         toast.error(error.message);
       });
-  };
+  };;
 
   /* Google signup handler */
   const handleGoogleSignup = () => {
