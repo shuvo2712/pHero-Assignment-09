@@ -40,7 +40,11 @@ const router = createBrowserRouter([
       },
       {
         path: "myprofile",
-        Component: MyProfilePage,
+        Component: () => (
+          <PrivateRoute>
+            <MyProfilePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "about",
