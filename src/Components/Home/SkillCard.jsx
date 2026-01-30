@@ -28,7 +28,7 @@ const SkillCard = ({ skill }) => {
         <div>
         <Link
           to={`/skills/${skill.skillId}`}
-          className="btn btn-primary w-full mt-3 rounded-lg"
+          className="btn btn-primary w-full mt-3 rounded-lg hover:bg-secondary"
         >
           View Details
           </Link>

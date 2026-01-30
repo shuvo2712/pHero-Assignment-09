@@ -3,21 +3,21 @@ import image from "../../assets/bannerImage.png";
 
 const testimonials = [
   {
-    name: "Alex Martin",
+    name: "Rakib",
     skill: "Guitar",
     photo: "https://i.postimg.cc/example1.png",
     review: "Amazing teacher! Learned guitar basics in just a few weeks.",
     rating: 5,
   },
   {
-    name: "Sara Hossain",
+    name: "Hasan",
     skill: "English",
     photo: "https://i.postimg.cc/example2.png",
     review: "Improved my speaking confidence a lot. Highly recommended!",
     rating: 4.8,
   },
   {
-    name: "Michael Lee",
+    name: "Shuvo",
     skill: "Photography",
     photo: "https://i.postimg.cc/example3.png",
     review: "Learned photography fundamentals in a fun way!",
@@ -27,13 +27,13 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <div className="p-10 bg-base-200 text-center">
-      <h2 className="text-4xl font-bold mb-10">What Our Learners Say</h2>
+    <div className="p-10 text-center mb-10">
+      <h2 className="text-5xl font-semibold mb-10">What Our Learners Say</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((t, index) => (
           <div
             key={index}
-            className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition"
+            className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow"
           >
             <img
               src={image}

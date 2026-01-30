@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase.config";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-hot-toast";
 
 const MyProfilePage = () => {
   const [user, setUser] = useState(null);
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState("");
   const [photoURL, setPhotoURL] = useState("");
+  const [loading, setLoading] = useState(true);
+
 
   // State change listener
   useEffect(() => {
@@ -18,19 +19,23 @@ const MyProfilePage = () => {
         setName(currentUser.displayName || "");
         setPhotoURL(currentUser.photoURL || "");
       }
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
 
-  if (user === null)
-    return <p className="p-10 text-center">Loading user info...</p>;
+  // loading
+  if (loading) return <p className="p-10 text-center">Loading user info...</p>;
+
+  // if no user
+  if (!user) return <p className="p-10 text-center">No user logged in</p>;
 
   // Update profile handler
   const handleUpdateProfile = (e) => {
     e.preventDefault();
     updateProfile(user, { displayName: name, photoURL })
       .then(() => {
-        toast.success("Profile updated successfully ✅");
+        toast.success("Profile updated successfully");
         setEditing(false);
       })
       .catch((error) => toast.error(error.message));
@@ -99,8 +104,6 @@ const MyProfilePage = () => {
           </div>
         </form>
       )}
-
-      <ToastContainer />
     </div>
   );
 };

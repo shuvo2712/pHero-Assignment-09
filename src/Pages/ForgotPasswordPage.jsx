@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import { sendPasswordResetEmail } from "firebase/auth";
-import { toast, ToastContainer } from "react-toastify";
 import { auth } from "../Firebase/firebase.config";
+import { toast } from "react-hot-toast";
 
 const ForgotPasswordPage = () => {
   const location = useLocation();
@@ -59,8 +59,6 @@ const ForgotPasswordPage = () => {
           </Link>
         </p>
       </form>
-
-      <ToastContainer />
     </div>
   );
 };

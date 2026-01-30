@@ -9,14 +9,28 @@ import Testimonials from "../Components/Home/Testimonials";
 
 const Home = () => {
   const skills = useLoaderData();
+  // console.log(skills);
+
   return (
     <div>
       <HeroSlider></HeroSlider>
       {/* <Banner></Banner> */}
-      <PopularSkills skills={skills}></PopularSkills>
-      <TopProviders></TopProviders>
-      <HowItWorks></HowItWorks>
-      <Testimonials></Testimonials>
+
+      <div data-aos="fade-up">
+        <PopularSkills skills={skills} />
+      </div>
+
+      <div data-aos="fade-right">
+        <TopProviders />
+      </div>
+
+      <div data-aos="fade-left">
+        <HowItWorks />
+      </div>
+
+      <div data-aos="zoom-in">
+        <Testimonials />
+      </div>
     </div>
   );
 };

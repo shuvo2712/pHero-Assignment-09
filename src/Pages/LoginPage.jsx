@@ -5,8 +5,9 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
-import { ToastContainer, toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { toast } from "react-hot-toast";
+
 
 import { auth } from "../Firebase/firebase.config";
 
@@ -25,7 +26,7 @@ const LoginPage = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        toast.success("Login successful ✅");
+        toast.success("Login successful");
         navigate(from, { replace: true });
       })
       .catch((error) => {
@@ -38,7 +39,7 @@ const LoginPage = () => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider)
       .then(() => {
-        toast.success("Google login successful ✅");
+        toast.success("Google login successful");
         navigate(from, { replace: true });
       })
       .catch((error) => toast.error(error.message));
@@ -66,7 +67,7 @@ const LoginPage = () => {
         {/* Password */}
         <div className="relative">
           <input
-            type={showPassword ? "text" : "password"} // 🔼 change type dynamically
+            type={showPassword ? "text" : "password"}
             placeholder="Password"
             className="input input-bordered w-full"
             value={password}
@@ -75,8 +76,8 @@ const LoginPage = () => {
           />
           <button
             type="button"
-            onClick={() => setShowPassword(!showPassword)} // 🔼 toggle password
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            onClick={() => setShowPassword(!showPassword)}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 z-10"
           >
             {showPassword ? "🙈" : "👁️"}
           </button>
@@ -115,8 +116,6 @@ const LoginPage = () => {
           </Link>
         </p>
       </form>
-
-      <ToastContainer />
     </div>
   );
 };

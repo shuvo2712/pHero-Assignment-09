@@ -6,6 +6,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "../../Firebase/firebase.config";
+import { toast } from "react-hot-toast";
 
 const baseLinkClass = "mx-1";
 const activeLinkClass = "bg-primary text-white";
@@ -68,7 +69,9 @@ const NavBar = () => {
 
   // Logout Btn
   const handleLogout = () => {
-    signOut(auth).catch(console.error);
+    signOut(auth)
+      .then(() => toast.success("Logged out successfully"))
+      .catch((err) => toast.error(err.message));
   };
 
   return (

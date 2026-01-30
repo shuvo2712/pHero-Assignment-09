@@ -16,8 +16,15 @@ const PrivateRoute = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  if (loading) return <p>Loading...</p>;
+  // loading state
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <span className="loading loading-spinner loading-lg"></span>
+      </div>
+    );
 
+  // if not logged in
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }

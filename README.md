@@ -81,7 +81,8 @@ tailwindcss
 daisyui
 swiper
 react-icons
-react-toastify
+react-hot-toast
+react-AOS
 
 🚀 How to Run Locally
 npm install

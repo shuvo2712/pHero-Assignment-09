@@ -4,6 +4,7 @@ import SkillCard from "../Components/Home/SkillCard";
 
 const SkillPage = () => {
   const skills = useLoaderData() || [];
+  // console.log(skills);
 
   return (
     <div className="p-10 w-full text-center">
