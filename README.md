@@ -1,93 +1,57 @@
-SkillSwap
-🔗 Live Website
+# SkillSwap 🌍  
+A Local Skill Exchange Platform
 
-👉 Live URL: https://phero-a09-skillswap.netlify.app/
+👉 **Live Website:** https://phero-a09-skillswap.netlify.app/
 
-📌 Project Purpose
+---
 
-SkillSwap is a skill-sharing platform where users can explore skills, view detailed skill information, and book learning sessions.
-The goal is to connect learners and skill providers in a simple, modern, and user-friendly way with authentication and protected routes.
+## 📌 Project Purpose
 
-✨ Key Features
+**SkillSwap** is a skill-sharing platform where users can explore skills, view detailed skill information, and book learning sessions.  
+The main goal is to connect learners and skill providers in a simple, modern, and user-friendly way using authentication and protected routes.
 
-🔐 Authentication
+---
 
-Email & Password Login
+## ✨ Key Features
 
-Google Social Login
+### 🔐 Authentication
+- Email & Password Login
+- Google Social Login
+- Protected Routes (Private Pages)
+- Redirect users back to their intended page after login
 
-Protected Routes (Private Pages)
+### 🧠 Skills Showcase
+- Popular Skills section
+- All Skills listing
+- Skill Details page (protected)
 
-🧠 Skills Showcase
+### 📄 Skill Details Page
+- Displays full skill information
+- Book Session form (Name & Email)
+- Success toast on submission
+- Auto form reset after submission
 
-Popular Skills section
+### 👤 User Profile
+- View user name, email, and profile image
+- Update profile name and photo using Firebase 
 
-All Skills page
+### 🧭 Routing & UI
+- Active navbar highlighting
+- SPA behavior (no reload errors)
+- Fully responsive (mobile, tablet, desktop)
+- Clean, minimalist UI with subtle animations
 
-Skill Details page (protected)
+---
 
-👤 User Profile
+## 📦 NPM Packages Used
 
-View user name, email, and photo
-
-Update profile name & photo
-
-📄 Skill Details Page
-
-Shows full skill information
-
-Book Session form
-
-Success toast on submission
-
-🧭 Routing
-
-Active navbar highlighting
-
-Redirect back to intended page after login
-
-🎨 Modern UI
-
-Hero Banner & Hero Slider
-
-Testimonials section
-
-Top Providers & How It Works sections
-
-🛠️ Technologies Used
-
-React
-
-React Router DOM
-
-Firebase Authentication
-
-Tailwind CSS
-
-DaisyUI
-
-Swiper.js
-
-React Icons
-
-React Toastify
-
-📦 NPM Packages Used
-react
-react-dom
-react-router-dom
-firebase
-tailwindcss
-daisyui
-swiper
-react-icons
-react-hot-toast
-react-AOS
-
-🚀 How to Run Locally
-npm install
-npm run dev
-
-🔐 Environment Variables
-
-Firebase configuration keys are stored securely using environment variables.
+- **react**
+- **react-dom**
+- **react-router-dom**
+- **firebase**
+- **tailwindcss**
+- **daisyui**
+- **swiper**
+- **react-icons**
+- **react-hot-toast**
+- **aos**
