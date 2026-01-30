@@ -9,6 +9,7 @@ import SkillDetailsPage from "../Pages/SkillDetailsPage";
 import LoginPage from "../Pages/LoginPage";
 import SignupPage from "../Pages/SignUpPage";
 import PrivateRoute from "./PrivateRoute";
+import ForgotPasswordPage from "../Pages/ForgotPasswordPage";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
         path: "signup",
         Component: SignupPage,
       },
+      {
+        path: "forgot-password",
+        Component: ForgotPasswordPage,
+      }
     ],
   },
   {

@@ -2,12 +2,10 @@ import React, { useState } from "react";
 import { useLocation, useNavigate, Link } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
-  sendPasswordResetEmail,
   GoogleAuthProvider,
   signInWithPopup,
 } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
 
 import { auth } from "../Firebase/firebase.config";
@@ -15,6 +13,7 @@ import { auth } from "../Firebase/firebase.config";
 const LoginPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -32,18 +31,6 @@ const LoginPage = () => {
       .catch((error) => {
         toast.error(error.message);
       });
-  };
-
-  /* Forget password handler */
-  const handleForgetPassword = () => {
-    if (!email) {
-      toast.error("Please enter your email first");
-      return;
-    }
-
-    sendPasswordResetEmail(auth, email)
-      .then(() => toast.success("Password reset email sent 📧"))
-      .catch((error) => toast.error(error.message));
   };
 
   /* Google login handler */
@@ -77,18 +64,27 @@ const LoginPage = () => {
         />
 
         {/* Password */}
-        <input
-          type="password"
-          placeholder="Password"
-          className="input input-bordered w-full"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <div className="relative">
+          <input
+            type={showPassword ? "text" : "password"} // 🔼 change type dynamically
+            placeholder="Password"
+            className="input input-bordered w-full"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)} // 🔼 toggle password
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+          >
+            {showPassword ? "🙈" : "👁️"}
+          </button>
+        </div>
 
         {/* Forget password */}
         <p
-          onClick={handleForgetPassword}
+          onClick={() => navigate("/forgot-password", { state: { email } })}
           className="text-sm text-blue-600 cursor-pointer"
         >
           Forgot Password?

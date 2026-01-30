@@ -1,56 +1,106 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { auth } from "../Firebase/firebase.config";
 import { onAuthStateChanged, updateProfile } from "firebase/auth";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const MyProfilePage = () => {
-  const [user, setUser] = useState(undefined); // 🔼 start as undefined
-  const [displayName, setDisplayName] = useState("");
+  const [user, setUser] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const [name, setName] = useState("");
+  const [photoURL, setPhotoURL] = useState("");
 
+  // State change listener
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      setDisplayName(currentUser?.displayName || "");
+      if (currentUser) {
+        setName(currentUser.displayName || "");
+        setPhotoURL(currentUser.photoURL || "");
+      }
     });
     return () => unsubscribe();
   }, []);
 
-  if (user === undefined) return <p className="p-10 text-center">Loading...</p>; // 🔼 safe
+  if (user === null)
+    return <p className="p-10 text-center">Loading user info...</p>;
 
-  if (!user)
-    return (
-      <p className="p-10 text-center">You must log in to view this page.</p>
-    ); // 🔼 safe
-
-  const handleUpdateProfile = () => {
-    updateProfile(user, { displayName })
-      .then(() => toast.success("Profile updated!"))
-      .catch((err) => toast.error(err.message));
+  // Update profile handler
+  const handleUpdateProfile = (e) => {
+    e.preventDefault();
+    updateProfile(user, { displayName: name, photoURL })
+      .then(() => {
+        toast.success("Profile updated successfully ✅");
+        setEditing(false);
+      })
+      .catch((error) => toast.error(error.message));
   };
 
   return (
-    <div className="max-w-xl mx-auto p-10">
-      <h1 className="text-4xl font-bold text-center mb-8">My Profile</h1>
-      <div className="flex flex-col items-center gap-5 bg-base-200 p-8 rounded-lg shadow-md">
+    <div className="max-w-md mx-auto my-10 p-6 bg-base-100 rounded shadow space-y-4">
+      <h1 className="text-2xl font-bold text-center">My Profile</h1>
+      <div className="flex flex-col items-center gap-2">
         <img
           src={user.photoURL || "https://i.ibb.co/4pDNDk1/avatar.png"}
-          alt="avatar"
-          className="w-32 h-32 rounded-full"
+          alt="User Avatar"
+          className="w-24 h-24 rounded-full"
         />
-        <input
-          type="text"
-          value={displayName}
-          onChange={(e) => setDisplayName(e.target.value)}
-          className="input input-bordered w-full max-w-xs text-center"
-        />
-        <p>Email: {user.email}</p>
+        <p>
+          <strong>Name:</strong> {user.displayName || "N/A"}
+        </p>
+        <p>
+          <strong>Email:</strong> {user.email}
+        </p>
+      </div>
+
+      {/* update profile Btn */}
+      {!editing && (
         <button
-          onClick={handleUpdateProfile}
-          className="btn btn-primary mt-3 w-full max-w-xs"
+          className="btn btn-primary w-full"
+          onClick={() => setEditing(true)}
         >
           Update Profile
         </button>
-      </div>
+      )}
+
+      {/* edit form */}
+      {editing && (
+        <form onSubmit={handleUpdateProfile} className="space-y-3">
+          <h1>Name: </h1>
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <h1>Photo URL: </h1>
+          <input
+            type="text"
+            className="input input-bordered w-full"
+            placeholder="Photo URL"
+            value={photoURL}
+            onChange={(e) => setPhotoURL(e.target.value)}
+          />
+          <div className="flex flex-col gap-2">
+            {/* update Btn */}
+            <button type="submit" className="btn btn-primary w-full">
+              Update
+            </button>
+            {/* cancel Btn */}
+            <button
+              type="button"
+              className="btn btn-error w-full"
+              onClick={() => setEditing(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+      )}
+
+      <ToastContainer />
     </div>
   );
 };
